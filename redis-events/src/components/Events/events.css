@@ -1,0 +1,45 @@
+
+/* Css code for header ends */
+p{
+    margin: 0;
+}
+.tableContainer{
+    box-shadow: 0px 0px 10px rgba(68, 68, 68, 0.6);
+   padding: 0 20px;  
+}
+table{
+    padding-left: 20px;
+    border-collapse: collapse;
+}
+table tbody tr{
+    border-bottom: 1px solid gray;
+    font-size: 14px;
+    color: #6d6363;
+}
+
+table tbody tr td{
+    padding: 10px;
+}
+table tbody tr td:nth-child(2){
+    text-transform: uppercase;
+}
+table tbody tr td:last-child{
+    text-align: right;
+    width: 100%;
+}
+table tbody tr td .roundedCheck{
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+table tbody tr td .roundedCheck img{
+    width: 12px;
+}
+.type{
+    font-size: 12px;
+    line-height: 2;
+    padding-left: 20px;
+}

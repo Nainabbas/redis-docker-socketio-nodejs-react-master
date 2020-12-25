@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  stream:
+    image: segment/fake-event-stream
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_CHANNEL=events
+      - EVENTS_PER_SECOND=10
+    links:
+    - redis
+
+  redis-socketio-node-react-starter-app:
+    image: zeshanmehmood/redis-socketio-node-react-starter-app:prod
+    build: 
+      context: ./
+    container_name: redis-socketio-node-react-starter-app
+    restart: always
+    volumes: 
+      - .:/redis-socketio-node-react-starter-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_CHANNEL=events
+
+volumes: 
+  redis-socketio-node-react-starter-app:
+    
